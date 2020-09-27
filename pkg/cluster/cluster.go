@@ -294,6 +294,8 @@ func (c *Cluster) createMachineRunArgs(machine *Machine, name string, i int) []s
 		"--tmpfs", "/run",
 		"--tmpfs", "/run/lock",
 		"--tmpfs", "/tmp:exec,mode=777",
+		"--security-opt", "seccomp=unconfined",
+		"--security-opt", "apparmor=unconfined",
 		"-v", "/sys/fs/cgroup:/sys/fs/cgroup:ro",
 	}
 
